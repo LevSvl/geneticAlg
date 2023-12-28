@@ -48,7 +48,7 @@ def selection(population:list):
     for i in range(numOfRelevent,POPULATION_SIZE):
         model = population[i]
         mx,my = model.x,model.y
-        if f(mx) == my or model.relVal <= 15:
+        if f(mx) == my or model.relVal <= 5:
             model.relevance = True
         else:
             model.relevance = False
@@ -121,17 +121,17 @@ def count_relevant(population:list):
 
 def f(x):
     # return (x*x)+1
-    return x*x-1
+    return -1* (x**2)
 
 # количество особей в популяции
 POPULATION_SIZE = 1000
 # доля успешных в отсоритированном списке
 RELEVANT_VALID_PART = 0.25
 # доли участвующих в скрещивании
-RELEVANT_PART = 0.3
-DEAD_PART = 0.2
+RELEVANT_PART = 0.4
+DEAD_PART = 0.1
 # доля мутировавших
-MUTATION_PART = 0.1
+MUTATION_PART = 0.08
 MUTATION_SIZE = int(POPULATION_SIZE * MUTATION_PART)
 
 if __name__ == '__main__':
